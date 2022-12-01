@@ -28,12 +28,13 @@ namespace csharp_oop_shop_2
             else { this.capacity = 1.5; }
         }
         public void litterstodrink(double drinks){
-            if (drinks < this.capacity)
+            if (drinks <= this.capacity)
             {
                 this.capacity = this.capacity - drinks;
             }
+            else { empty(); }
         }
-        public void refill(int water)
+        public void refill(double water)
         {
             if (water < 1.5)
             {
