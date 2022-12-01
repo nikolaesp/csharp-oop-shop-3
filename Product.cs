@@ -52,22 +52,27 @@ namespace csharp_oop_shop_2
         {
             return this.price + (this.price * (this.vat / 100.0));
         }
-        public void nomeCompleto()
+        public virtual string fullName()
         {
-            Console.WriteLine("Nome completo: " + this.name + this.code);
+          
+            string name ="Nome completo: " + this.name + this.code;
+            return name;
         }
-        public void codiceFormat(int code)
+        public virtual string codiceFormat(int num)
         {
-
-            Console.WriteLine("{0,22:D8}", code);
+            string code;
+           code = num.ToString().PadLeft(8,'0');
+            return code;
         }
-        public void StampaProdotto()
+        public virtual void PrintProduct()
         {
+            Console.WriteLine(fullName());
             Console.WriteLine("Nome: " + this.name);
-            Console.WriteLine("Codice: " + this.code);
+            Console.WriteLine("Codice: "+codiceFormat(this.code));
             Console.WriteLine("Descrizione: " + this.description);
             Console.WriteLine("Prezzo: " + this.price + "eur");
             Console.WriteLine("IVA: " + this.vat + "%");
+            Console.WriteLine("Prezzo Totale: "+prezzoTotale()+"eur");
         }
     }
 }
