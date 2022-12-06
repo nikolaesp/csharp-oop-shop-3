@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace csharp_oop_shop_2
 {
     internal class WaterBottle : Product
@@ -55,7 +57,7 @@ namespace csharp_oop_shop_2
         public void litterstodrink(double drinks){
             if(this.capacity == 0)
             {
-                throw new BottleIsEmpty();
+                throw new Exception();
             }
             if (drinks <= this.capacity)
             {
