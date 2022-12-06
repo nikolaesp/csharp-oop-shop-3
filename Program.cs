@@ -14,14 +14,14 @@ Ariston.PrintProduct();
 SanPelegrino.empty();
 SanPelegrino.PrintProduct();
 
+try
+{
     SanPelegrino.refill(0.3);
     SanPelegrino.PrintProduct();
     SanPelegrino.refill(1.5);
     SanPelegrino.PrintProduct();
     SanPelegrino.litterstodrink(1);
-/*
-try
-{
+
     int waterl = int.Parse(Console.ReadLine());
     SanPelegrino.refill(waterl);
 }
@@ -29,18 +29,14 @@ catch (ArgumentOutOfRangeException e)
 {
     Console.WriteLine(e.Message);
 }
-catch (Exception e)
-{
-    Console.WriteLine(e.Message);
-}
 catch (BottleIsEmpty e)
 {
     Console.WriteLine(e.Message);
 }
-*/
+
 
 SanPelegrino.PrintProduct();
 barilla.PrintProduct();
 int waterlit = int.Parse(Console.ReadLine());
-double gallons =WaterBottle.convertiInGalloni(waterlit);
+double gallons = WaterBottle.convertiInGalloni(waterlit);
    

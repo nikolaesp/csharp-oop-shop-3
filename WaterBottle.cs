@@ -14,6 +14,7 @@ namespace csharp_oop_shop_2
         private double capacity;
         private double Ph;
         private string watersource;
+        static double coeficent = 3.785;
         public WaterBottle(string name, string description, int price, int vat, double capacity, double ph, string watersource) : base(name, description, price, vat)
         {
             if (capacity < 0 || capacity > 1.5)
@@ -80,7 +81,7 @@ namespace csharp_oop_shop_2
         }
         public static double convertiInGalloni(double litri)
         {
-            static double coeficent = 3,785;
+            
             return litri * coeficent;
         }
         public void empty() { this.capacity = 0; }
