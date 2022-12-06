@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_oop_shop_2.BottleIsEmpty
 {
-    internal class BottleIsEmpty : ArgumentOutOfRangeException
+    internal class BottleIsEmpty : Exception
     {
         public BottleIsEmpty() : base()
         {

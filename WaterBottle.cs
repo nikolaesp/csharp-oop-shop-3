@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csharp_oop_shop_2.BottleIsEmpty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,7 @@ namespace csharp_oop_shop_2
         public void litterstodrink(double drinks){
             if(this.capacity == 0)
             {
-                throw new Exception();
+                throw new BottleIsEmpty();
             }
             if (drinks <= this.capacity)
             {
@@ -67,11 +68,20 @@ namespace csharp_oop_shop_2
         }
         public void refill(double water)
         {
-            if (water < 1.5)
+            if(water < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(water), $"Water  must be more then 0l.");
+            }
+            if (water <= 1.5)
             {
                 this.capacity=this.capacity+water;
             }
-            else { this.capacity = 1.5; }
+            else {throw new ArgumentOutOfRangeException(nameof(water), $"Water  must be less then 1.5l."); }
+        }
+        public static double convertiInGalloni(double litri)
+        {
+            static double coeficent = 3,785;
+            return litri * coeficent;
         }
         public void empty() { this.capacity = 0; }
         public override void PrintProduct()
