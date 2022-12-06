@@ -13,21 +13,50 @@ namespace csharp_oop_shop_2
         private string watersource;
         public WaterBottle(string name, string description, int price, int vat, double capacity, double ph, string watersource) : base(name, description, price, vat)
         {
-            this.capacity = capacity;
-            Ph = ph;
+            if (capacity < 0 || capacity > 1.5)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                this.capacity = capacity;
+            }
+            if (ph > 10 || ph < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else{ this.Ph = ph; }
             this.watersource = watersource; 
         }
 
         public double getCapacity() { return this.capacity; }
         public double getPh() { return this.Ph; }
+        public void setPh(double ph)
+        {
+            if (ph > 10 || ph < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else { this.Ph = ph; }
+        }
         public string getWatersource() { return this.watersource; }
 
         public void setCapacity(double capacity)
         {
-            if (capacity <= 1.5) { this.capacity = capacity; }
-            else { this.capacity = 1.5; }
+            if (capacity < 0 || capacity > 1.5)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                this.capacity = capacity;
+            }
         }
         public void litterstodrink(double drinks){
+            if(this.capacity == 0)
+            {
+                throw new BottleIsEmpty();
+            }
             if (drinks <= this.capacity)
             {
                 this.capacity = this.capacity - drinks;

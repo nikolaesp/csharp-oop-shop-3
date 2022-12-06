@@ -20,16 +20,44 @@ namespace csharp_oop_shop_2
             Random rnd = new Random();
             int myRandomNo = rnd.Next(00000000, 99999999); // crea random numero di 8 cifre
             this.code = myRandomNo;
-            this.name = name;
+            if (name == "" || name == null)
+            {
+                throw new Exception("Name can not be empty!");
+            }
+            else
+            {
+                this.name = name;
+            }
             this.description = description;
-            this.price = price;
-            this.vat = vat;
+            if (price < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(price), $"Price must be 0 or higher.");
+            }
+            else
+            {
+                this.price = price;
+            }
+            if (vat < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(price), $"VAT  must be 0 or higher.");
+
+            }
+            else
+            {
+                this.vat = vat;
+            }
         }
         public int getCode() { return this.code; }
         public void setName(string name)
         {
-
-            this.name = name;
+            if (name == "" || name == null)
+            {
+                throw new Exception("Name can not be empty!");
+            }
+            else
+            {
+                this.name = name;
+            }
         }
         public string getName() { return this.name; }
         public void setDescription(string des)
@@ -39,12 +67,27 @@ namespace csharp_oop_shop_2
         public string getDescription() { return this.description; }
         public void setPrezzo(int price)
         {
-            this.price = price;
+            if (price < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(price), $"Price  must be 0 or higher.");
+            }
+            else
+            {
+                this.price = price;
+            }
         }
         public int getPrezzo() { return this.price; }
         public void setIva(int vat)
         {
-            this.vat = vat;
+            if (vat < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(price), $"VAT  must be 0 or higher.");
+
+            }
+            else
+            {
+                this.vat = vat;
+            }
         }
         public int getIva() { return this.vat; }
 
