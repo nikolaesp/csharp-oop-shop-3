@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using csharp_oop_shop_2;
-using csharp_oop_shop_2.BottleIsEmpty;
+using System.Reflection.Metadata;
 
 WaterBottle SanPelegrino = new WaterBottle("San Pellegrino", "Aqua dal bergamo", 2, 5, 1.5, 4.5, "Pellegrino Therme");
 Snack bare = new Snack("Bare", "Frutta secca", 1, 5,4, "Mella");
@@ -18,7 +18,7 @@ try
 {
     SanPelegrino.refill(0.3);
     SanPelegrino.PrintProduct();
-    SanPelegrino.refill(1.5);
+    SanPelegrino.refill(2);
     SanPelegrino.PrintProduct();
     SanPelegrino.litterstodrink(1);
 
@@ -33,10 +33,16 @@ catch (BottleIsEmpty e)
 {
     Console.WriteLine(e.Message);
 }
-
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
 
 SanPelegrino.PrintProduct();
 barilla.PrintProduct();
-int waterlit = int.Parse(Console.ReadLine());
+Console.WriteLine("Ci sono " + Product.ogetti + " articoli in negozio.");
+
+double waterlit = int.Parse(Console.ReadLine());
 double gallons = WaterBottle.convertiInGalloni(waterlit);
-   
+Console.WriteLine(waterlit + "l in gallon sono: " + gallons);
+

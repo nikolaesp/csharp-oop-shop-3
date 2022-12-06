@@ -1,4 +1,4 @@
-﻿using csharp_oop_shop_2.BottleIsEmpty;
+﻿using csharp_oop_shop_2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace csharp_oop_shop_2
         private double capacity;
         private double Ph;
         private string watersource;
-        static double coeficent = 3.785;
+        readonly static double coeficent = 3.785;
         public WaterBottle(string name, string description, int price, int vat, double capacity, double ph, string watersource) : base(name, description, price, vat)
         {
             if (capacity < 0 || capacity > 1.5)
@@ -59,7 +59,7 @@ namespace csharp_oop_shop_2
         public void litterstodrink(double drinks){
             if(this.capacity == 0)
             {
-                throw new BottleIsEmpty();
+                throw new BottleIsEmpty("No puoi bere e vuoto!");
             }
             if (drinks <= this.capacity)
             {

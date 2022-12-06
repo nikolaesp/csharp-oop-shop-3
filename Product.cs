@@ -13,10 +13,12 @@ namespace csharp_oop_shop_2
         private string description;
         private int price;
         private int vat;
+        public static int ogetti = 0;
 
 
         public Product(string name, string description, int price, int vat)
         {
+            ogetti++;
             Random rnd = new Random();
             int myRandomNo = rnd.Next(00000000, 99999999); // crea random numero di 8 cifre
             this.code = myRandomNo;
