@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using csharp_oop_shop_2;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
 
 WaterBottle SanPelegrino = new WaterBottle("San Pellegrino", "Aqua dal bergamo", 2, 5, 1.5, 4.5, "Pellegrino Therme");
@@ -41,8 +42,13 @@ catch (Exception e)
 SanPelegrino.PrintProduct();
 barilla.PrintProduct();
 Console.WriteLine("Ci sono " + Product.ogetti + " articoli in negozio.");
-
-double waterlit = int.Parse(Console.ReadLine());
-double gallons = WaterBottle.convertiInGalloni(waterlit);
-Console.WriteLine(waterlit + "l in gallon sono: " + gallons);
-
+try
+{
+    double waterlit = int.Parse(Console.ReadLine());
+    double gallons = WaterBottle.convertiInGalloni(waterlit);
+    Console.WriteLine(waterlit + "l in gallon sono: " + gallons+"gal.");
+} catch (NullReferenceException e)
+{
+    Console.WriteLine(e.Message);
+}
+Console.ReadLine();
