@@ -42,5 +42,5 @@ catch (BottleIsEmpty e)
 SanPelegrino.PrintProduct();
 barilla.PrintProduct();
 int waterlit = int.Parse(Console.ReadLine());
-double gallons = SanPelegrino.convertiInGalloni(waterlit);
+double gallons =WaterBottle.convertiInGalloni(waterlit);
    
